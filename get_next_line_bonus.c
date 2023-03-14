@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 14:47:55 by thong-bi          #+#    #+#             */
-/*   Updated: 2023/02/16 16:14:35 by thong-bi         ###   ########.fr       */
+/*   Created: 2023/02/16 15:55:48 by thong-bi          #+#    #+#             */
+/*   Updated: 2023/02/16 16:16:34 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_read_line(int fd, char *str)
 {
@@ -92,14 +92,14 @@ char	*ft_renew(char *str)
 char	*get_next_line(int fd)
 {
 	char		*res;
-	static char	*str;
+	static char	*str[1024];
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1023)
 		return (NULL);
-	str = ft_read_line(fd, str);
-	if (!str)
+	str[fd] = ft_read_line(fd, str[fd]);
+	if (!str[fd])
 		return (NULL);
-	res = ft_get_line(str);
-	str = ft_renew(str);
+	res = ft_get_line(str[fd]);
+	str[fd] = ft_renew(str[fd]);
 	return (res);
 }

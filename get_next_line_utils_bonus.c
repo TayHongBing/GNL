@@ -6,11 +6,11 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:55:33 by thong-bi          #+#    #+#             */
-/*   Updated: 2023/02/16 16:17:12 by thong-bi         ###   ########.fr       */
+/*   Updated: 2023/03/16 22:15:42 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *str)
 {
